@@ -1,0 +1,49 @@
+.page {
+  width: 100%;
+  min-height: 690px;
+  padding-top: 195px;
+  background-image: url("/image/hero/hero-photo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.intro {
+}
+.title {
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 0.66667;
+  color: var(--inputs);
+}
+.description {
+  margin-bottom: 40px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  color: var(--inputs);
+}
+.button {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--white);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 200px;
+  padding: 16px 50px;
+  min-width: 173px;
+  background: var(--grey-green);
+  transition: background-color 300ms ease;
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--green-hover);
+}
