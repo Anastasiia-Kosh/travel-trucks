@@ -42,3 +42,17 @@ export interface CamperFilterValues {
   engine: CamperEngine | "";
   transmission: CamperTransmission | "";
 }
+export interface CamperImage {
+  id: string;
+  camperId: string;
+  thumb: string;
+  original: string;
+  order: number;
+}
+
+export type CamperDetails = Omit<Camper, "coverImage"> & {
+  gallery: CamperImage[];
+  createdAt: string;
+  updatedAt: string;
+};
+

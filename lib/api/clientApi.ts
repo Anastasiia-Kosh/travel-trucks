@@ -1,4 +1,4 @@
-import type { CamperFiltersResponse, FetchCampersParams, FetchCampersResponse } from "@/types/camper";
+import type { CamperDetails, CamperFiltersResponse, FetchCampersParams, FetchCampersResponse } from "@/types/camper";
 import { nextServerInstance } from "./api";
 
 export const fetchCampers = async (params: FetchCampersParams) : Promise<FetchCampersResponse> => {
@@ -10,5 +10,10 @@ export const fetchCampers = async (params: FetchCampersParams) : Promise<FetchCa
 
 export const fetchCamperFilters = async () : Promise<CamperFiltersResponse> => {
   const response = await nextServerInstance.get<CamperFiltersResponse>("/catalog/filters");
+  return response.data;
+};
+
+export const fetchCamperById = async (camperId: string) : Promise<CamperDetails> => {
+  const response = await nextServerInstance.get<CamperDetails>(`/catalog/${camperId}`);
   return response.data;
 };
