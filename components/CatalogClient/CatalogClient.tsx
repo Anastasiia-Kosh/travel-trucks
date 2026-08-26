@@ -66,7 +66,6 @@ export default function CatalogClient() {
   if (isError) {
     return <p>{error.message}</p>;
   }
-  console.log("Застосовані фільтри:", appliedFilters);
   return (
     <section className={css.page}>
       <CamperFilter

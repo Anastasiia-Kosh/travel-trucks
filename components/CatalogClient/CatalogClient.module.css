@@ -41,7 +41,7 @@
 }
 
 .photo {
-  object-fit: cover;
+  object-fit: contain;
 }
 .emptyTitle {
   font-family: var(--font-family);

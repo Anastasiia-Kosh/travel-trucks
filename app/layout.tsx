@@ -3,7 +3,7 @@ import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
-import "ldloader/dist/ldld.min.css";
+
 
 const inter = Inter({
   variable: "--font-geist-sans",
@@ -23,12 +23,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${inter.variable} ${manrope.variable}`}>
-      <TanStackProvider>
       <body>
-        <Header />
-        <main>{children}</main>
-        </body>
+        <TanStackProvider>
+          <Header />
+          <main>{children}</main>
         </TanStackProvider>
+      </body>
     </html>
   );
 }
