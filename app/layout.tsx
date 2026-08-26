@@ -3,6 +3,7 @@ import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
+import "ldloader/dist/ldld.min.css";
 
 const inter = Inter({
   variable: "--font-geist-sans",
