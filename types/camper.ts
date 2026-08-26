@@ -1,6 +1,6 @@
-type CamperForm = "alcove" | "panel_van" | "integrated" | "semi_integrated";
-type CamperEngine = "diesel" | "petrol" | "hybrid" | "electric";
-type CamperTransmission = "automatic" | "manual";
+export type CamperForm = "alcove" | "panel_van" | "integrated" | "semi_integrated";
+export type CamperEngine = "diesel" | "petrol" | "hybrid" | "electric";
+export type CamperTransmission = "automatic" | "manual";
 
 export interface Camper {
   id: string;
@@ -21,11 +21,24 @@ export interface Camper {
   coverImage: string;
   totalReviews: number;
 }
-
 export interface FetchCampersResponse {
 page: number;
 perPage: number;
 total: number;
 totalPages: number;
 campers: Camper[];
+}
+export interface FetchCampersParams extends CamperFilterValues {
+  page: number;
+}
+export interface CamperFiltersResponse {
+  forms: CamperForm[];
+  engines: CamperEngine[];
+  transmissions: CamperTransmission[];
+}
+export interface CamperFilterValues {
+  location: string;
+  form: CamperForm | "";
+  engine: CamperEngine | "";
+  transmission: CamperTransmission | "";
 }

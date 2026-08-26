@@ -4,29 +4,34 @@ import { isAxiosError } from "axios";
 
 export async function GET(request: NextRequest) {
   try {
-    const search = request.nextUrl.searchParams.get('search') ?? '';
-    const page = Number(request.nextUrl.searchParams.get('page') ?? 1);
-    const rawTag = request.nextUrl.searchParams.get('tag') ?? '';
-    const tag = rawTag === 'All' ? '' : rawTag;
+    const page = Number(request.nextUrl.searchParams.get("page") ?? 1);
+    const location = request.nextUrl.searchParams.get("location") ?? "";
+    const form = request.nextUrl.searchParams.get("form") ?? "";
+    const engine = request.nextUrl.searchParams.get("engine") ?? "";
+    const transmission = request.nextUrl.searchParams.get("transmission") ?? "";
 
-    const res = await api.get('/catalog', {
+    const res = await api.get("/campers", {
       params: {
-        ...(search !== '' && { search }),
         page,
-        perPage: 12,
-        ...(tag && { tag }),
+        perPage: 4,
+        ...(location && { location }),
+        ...(form && { form }),
+        ...(engine && { engine }),
+        ...(transmission && { transmission }),
       },
     });
-          return NextResponse.json(res.data, { status: res.status });
+    return NextResponse.json(res.data, { status: res.status });
   } catch (error) {
     if (isAxiosError(error)) {
-
       return NextResponse.json(
         { error: error.message, response: error.response?.data },
-        { status: error.status }
+        { status: error.response?.status ?? 500 },
       );
     }
 
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 },
+    );
   }
 }
