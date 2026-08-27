@@ -21,7 +21,7 @@ export default function CamperCard({
             alt={camper.name}
             fill
             className={css.photo}
-            sizes="(min-width: 1440px) 219px"
+            sizes="(min-width: 768px) 219px, calc(100vw - 72px)"
             loading={eagerImage ? "eager" : "lazy"}
             fetchPriority={eagerImage ? "high" : "auto"}
           />

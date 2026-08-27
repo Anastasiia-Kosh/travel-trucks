@@ -3,7 +3,7 @@ import { fetchCampers } from "@/lib/api/clientApi";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import CamperList from "../CamperList/CamperList";
 import CamperFilter from "../CamperFilters/CamperFilters";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CamperFilterValues } from "@/types/camper";
 import css from "./CatalogClient.module.css";
 import Image from "next/image";
@@ -22,7 +22,28 @@ export default function CatalogClient() {
 
   const [appliedFilters, setAppliedFilters] =
     useState<CamperFilterValues>(initialFilters);
+  const [isFiltersOpen, setIsFiltersOpen] = useState(false);
+  useEffect(() => {
+  if (!isFiltersOpen) {
+    return;
+  }
 
+  const previousOverflow = document.body.style.overflow;
+  document.body.style.overflow = "hidden";
+
+  const handleEscape = (event: KeyboardEvent) => {
+    if (event.key === "Escape") {
+      setIsFiltersOpen(false);
+    }
+  };
+
+  window.addEventListener("keydown", handleEscape);
+
+  return () => {
+    document.body.style.overflow = previousOverflow;
+    window.removeEventListener("keydown", handleEscape);
+  };
+}, [isFiltersOpen]);
   const {
     data,
     error,
@@ -47,6 +68,7 @@ export default function CatalogClient() {
   const campers = data?.pages.flatMap((page) => page.campers) ?? [];
   const handleSearch = () => {
     setAppliedFilters({ ...draftFilters });
+    setIsFiltersOpen(false);
   };
 
   const handleClearFilters = () => {
@@ -54,13 +76,14 @@ export default function CatalogClient() {
 
     setDraftFilters(clearedFilters);
     setAppliedFilters(clearedFilters);
+    setIsFiltersOpen(false);
   };
 
   const handleLoadMore = async () => {
     if (!hasNextPage || isFetchingNextPage) {
       return;
     }
-    fetchNextPage();
+    await fetchNextPage();
   };
   const showFullLoader = isFetching && !isFetchingNextPage;
   if (isError) {
@@ -68,12 +91,41 @@ export default function CatalogClient() {
   }
   return (
     <div className={css.page}>
-      <CamperFilter
-        draftFilters={draftFilters}
-        setDraftFilters={setDraftFilters}
-        onSearch={handleSearch}
-        onClear={handleClearFilters}
-      />
+      <button
+        className={css.openFiltersButton}
+        type="button"
+        onClick={() => setIsFiltersOpen(true)}
+        aria-expanded={isFiltersOpen}
+        aria-controls="catalog-filters"
+      >
+        Filters
+      </button>
+
+      <div
+        id="catalog-filters"
+        className={`${css.filterPanel} ${
+          isFiltersOpen ? css.filterPanelOpen : ""
+        }`}
+      >
+        <div className={css.filterPanelHeader}>
+          <button
+            type="button"
+            className={css.closeFiltersButton}
+            onClick={() => setIsFiltersOpen(false)}
+            aria-label="Close filters"
+          >
+            <svg className={css.closeFiltersIcon} width="12" height="12" aria-hidden="true">
+              <use href="/icons/sprite.svg#icon-x-vector" />
+            </svg>
+          </button>
+        </div>
+        <CamperFilter
+          draftFilters={draftFilters}
+          setDraftFilters={setDraftFilters}
+          onSearch={handleSearch}
+          onClear={handleClearFilters}
+        />
+      </div>
       <div className={css.wrapper}>
         {showFullLoader && <LoaderModal />}
         {!isPending &&
@@ -99,7 +151,7 @@ export default function CatalogClient() {
                   alt="No campers found"
                   fill
                   className={css.photo}
-                  sizes="(min-width: 1440px) 488px"
+                  sizes="(min-width: 1200px) 488px, 90vw"
                 />
               </div>
               <h2 className={css.emptyTitle}>No campers found</h2>

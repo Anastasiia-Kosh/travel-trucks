@@ -83,12 +83,13 @@ export default function CamperFilter({
                 id={`form-${form}`}
                 value={form}
                 checked={draftFilters.form === form}
-                onChange={() =>
+                onClick={() =>
                   setDraftFilters((previous) => ({
                     ...previous,
-                    form,
+                    form: previous.form === form ? "" : form,
                   }))
                 }
+                readOnly
               />
               <label className={css.optionLabel} htmlFor={`form-${form}`}>
                 {formatLabel(form)}
@@ -110,12 +111,13 @@ export default function CamperFilter({
                 id={`engine-${engine}`}
                 value={engine}
                 checked={draftFilters.engine === engine}
-                onChange={() =>
+                onClick={() =>
                   setDraftFilters((previous) => ({
                     ...previous,
-                    engine,
+                    engine: previous.engine === engine ? "" : engine,
                   }))
                 }
+                readOnly
               />
               <label className={css.optionLabel} htmlFor={`engine-${engine}`}>
                 {formatLabel(engine)}
@@ -136,12 +138,16 @@ export default function CamperFilter({
                 id={`transmission-${transmission}`}
                 value={transmission}
                 checked={draftFilters.transmission === transmission}
-                onChange={() =>
+                onClick={() =>
                   setDraftFilters((previous) => ({
                     ...previous,
-                    transmission,
+                    transmission:
+                      previous.transmission === transmission
+                        ? ""
+                        : transmission,
                   }))
                 }
+                readOnly
               />
               <label
                 className={css.optionLabel}

@@ -12,11 +12,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 72px;
+  min-height: 64px;
 }
 .logo {
   font-weight: 700;
-  font-size: 24px;
+  font-size: 18px;
   line-height: 1.5;
   text-align: center;
   color: var(--main);
@@ -25,19 +25,19 @@
   color: var(--text);
 }
 .desktopNav {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  position: static;
+  margin-left: auto;
+  transform: none;
 }
 .navigation {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 16px;
 }
 .navLink {
   position: relative;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.5;
   text-align: center;
   color: var(--main);
@@ -53,4 +53,30 @@
 }
 .activeLink {
   color: var(--grey-green);
+}
+
+@media screen and (min-width: 768px) {
+  .headerInner {
+    min-height: 72px;
+  }
+
+  .logo,
+  .logoAccent {
+    font-size: 24px;
+  }
+
+  .desktopNav {
+    position: absolute;
+    left: 50%;
+    margin-left: 0;
+    transform: translateX(-50%);
+  }
+
+  .navigation {
+    gap: 32px;
+  }
+
+  .navLink {
+    font-size: 16px;
+  }
 }

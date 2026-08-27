@@ -1,29 +1,29 @@
 .page {
   width: 100%;
   max-width: 1440px;
-  min-height: 690px;
-  padding-top: 195px;
+  min-height: 620px;
+  padding-top: 120px;
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url("/image/hero/hero-photo.webp");
+    url("/image/hero/hero-mobile.webp");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center 90%;
+  background-position: center;
   margin: 0 auto;
 }
 
 .title {
   margin-bottom: 16px;
   font-weight: 600;
-  font-size: 48px;
-  line-height: 0.66667;
+  font-size: 32px;
+  line-height: 1.2;
   color: var(--inputs);
 }
 .description {
-  margin-bottom: 40px;
+  margin-bottom: 32px;
   font-weight: 600;
-  font-size: 24px;
-  line-height: 1.33333;
+  font-size: 18px;
+  line-height: 1.4;
   color: var(--inputs);
 }
 .button {
@@ -32,13 +32,12 @@
   line-height: 1.5;
   letter-spacing: -0.01em;
   color: var(--white);
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 200px;
-  padding: 16px 50px;
-  min-width: 173px;
+  padding: 12px 24px;
+
   background: var(--grey-green);
   transition: background-color 300ms ease;
 }
@@ -46,4 +45,39 @@
 .button:hover,
 .button:focus {
   background-color: var(--green-hover);
+}
+@media screen and (min-width: 768px) {
+  .page {
+    min-height: 690px;
+    padding-top: 195px;
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      url("/image/hero/hero-tablet.webp");
+  }
+
+  .title {
+    font-size: 48px;
+    line-height: 0.66667;
+  }
+
+  .description {
+    margin-bottom: 80px;
+    font-size: 24px;
+    line-height: 1.33333;
+  }
+  .button {
+    min-width: 173px;
+    padding: 16px 50px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .page {
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      url("/image/hero/hero-photo.webp");
+    background-position: center 90%;
+  }
+  .description {
+    margin-bottom: 40px;
+  }
 }
