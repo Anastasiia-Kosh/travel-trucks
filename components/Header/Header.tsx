@@ -10,7 +10,12 @@ export default function Header() {
     <header className={css.header}>
       <div className="container">
         <div className={css.headerInner}>
-          <Link href="/" aria-label="TravelTrucks" className={css.logo}>
+          <Link
+            href="/"
+            aria-label="TravelTrucks"
+            className={css.logo}
+            prefetch={false}
+          >
             Travel<span className={css.logoAccent}>Trucks</span>
           </Link>
 
@@ -20,6 +25,7 @@ export default function Header() {
                 <Link
                   href="/"
                   className={pathname === "/" ? css.activeLink : undefined}
+                  prefetch={false}
                 >
                   Home
                 </Link>
