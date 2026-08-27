@@ -1,5 +1,4 @@
 import type { Camper } from "@/types/camper";
-// import Link from "next/link";
 import css from "./CamperCard.module.css";
 import Image from "next/image";
 import { formatLabel } from "@/lib/utils/formatLabel";

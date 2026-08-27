@@ -27,6 +27,7 @@ export default function Header() {
               <li className={css.navLink}>
                 <Link
                   href="/catalog"
+                  prefetch={false}
                   className={
                     pathname.startsWith("/catalog") ? css.activeLink : undefined
                   }

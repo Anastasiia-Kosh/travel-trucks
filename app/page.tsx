@@ -17,7 +17,7 @@ export default function Home() {
           <p className={css.description}>
             You can find everything you want in our catalog
           </p>
-          <Link href="/catalog" className={css.button}>
+          <Link href="/catalog" className={css.button} prefetch={false}>
             View Now
           </Link>
         </div>
