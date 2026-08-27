@@ -24,8 +24,8 @@ export default function CamperReviews({ camperId }: CamperReviewsProps) {
     return <p>No reviews yet.</p>;
   }
 
-  const authorABC = (value: string): string => {
-    return value[0].toUpperCase();
+  const getAuthorInitial = (value: string): string => {
+    return value.trim().charAt(0).toUpperCase() || "?";
   };
 
   return (
@@ -33,22 +33,25 @@ export default function CamperReviews({ camperId }: CamperReviewsProps) {
       <h2 className={css.reviewstitle}>Reviews</h2>
       <ul className={css.reviewCards}>
         {data.map((review) => (
-            <li key={review.id} className={css.reviewCard}>
-                <div className={css.authorInfo}>
-                    <p className={css.authorABC}>{authorABC(review.reviewer_name)}</p>
-                    <div className={css.ratingInfo}>
-            <h3 className={css.reviewsAuthor}>{review.reviewer_name}</h3>
-                        <Rating
-                             initialValue={review.reviewer_rating}
-              iconsCount={5}
-              readonly
-              size={16}
-              fillColor="var(--rating)"
-              emptyColor="var(--gray-light)"
-              allowFraction={false}
-              SVGstyle={{ display: "inline-block" }}
-                    />
-                    </div></div>
+          <li key={review.id} className={css.reviewCard}>
+            <div className={css.authorInfo}>
+              <p className={css.authorABC}>
+                {getAuthorInitial(review.reviewer_name)}
+              </p>
+              <div className={css.ratingInfo}>
+                <h3 className={css.reviewsAuthor}>{review.reviewer_name}</h3>
+                <Rating
+                  initialValue={review.reviewer_rating}
+                  iconsCount={5}
+                  readonly
+                  size={16}
+                  fillColor="var(--rating)"
+                  emptyColor="var(--gray-light)"
+                  allowFraction={false}
+                  SVGstyle={{ display: "inline-block" }}
+                />
+              </div>
+            </div>
             <p className={css.reviewsText}>{review.comment}</p>
           </li>
         ))}

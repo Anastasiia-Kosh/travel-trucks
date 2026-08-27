@@ -3,14 +3,13 @@ import { isAxiosError } from "axios";
 import { api } from "@/app/api/api";
 import { BookingRequestData } from "@/types/camper";
 
-
 export async function POST(
   request: Request,
   { params }: { params: Promise<{ camperId: string }> },
 ) {
   try {
     const { camperId } = await params;
-  const body: BookingRequestData = await request.json();
+    const body: BookingRequestData = await request.json();
     const res = await api.post(`/campers/${camperId}/booking-requests`, body);
 
     return NextResponse.json(res.data, {

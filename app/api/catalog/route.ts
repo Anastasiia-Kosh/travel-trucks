@@ -5,7 +5,7 @@ import { isAxiosError } from "axios";
 export async function GET(request: NextRequest) {
   try {
     const page = Number(request.nextUrl.searchParams.get("page") ?? 1);
-    const location = request.nextUrl.searchParams.get("location") ?? "";
+    const location = request.nextUrl.searchParams.get("location")?.trim() ?? "";
     const form = request.nextUrl.searchParams.get("form") ?? "";
     const engine = request.nextUrl.searchParams.get("engine") ?? "";
     const transmission = request.nextUrl.searchParams.get("transmission") ?? "";

@@ -3,12 +3,8 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchCamperFilters } from "@/lib/api/clientApi";
 import type { CamperFilterValues } from "@/types/camper";
 import css from "./CamperFilters.module.css";
-import { formatLabel } from "@/lib/utils/fomatLabel";
-import type {
-  Dispatch,
-  SetStateAction,
-  SubmitEvent,
-} from "react";
+import { formatLabel } from "@/lib/utils/formatLabel";
+import type { Dispatch, SetStateAction, SubmitEvent } from "react";
 
 interface CamperFilterProps {
   draftFilters: CamperFilterValues;
@@ -17,11 +13,12 @@ interface CamperFilterProps {
   onClear: () => void;
 }
 
-
-export default function CamperFilter({   draftFilters,
+export default function CamperFilter({
+  draftFilters,
   setDraftFilters,
   onSearch,
-  onClear, }: CamperFilterProps) {
+  onClear,
+}: CamperFilterProps) {
   const { data, isPending, isError, error } = useQuery({
     queryKey: ["camperFilters"],
     queryFn: fetchCamperFilters,
@@ -46,7 +43,13 @@ export default function CamperFilter({   draftFilters,
         </label>
 
         <div className={css.locationField}>
-          <svg className={css.locationIcon} width="20" height="20">
+          <svg
+            className={css.locationIcon}
+            width="20"
+            height="20"
+            aria-hidden="true"
+            focusable="false"
+          >
             <use href="/icons/sprite.svg#icon-location" />
           </svg>
 
@@ -154,11 +157,17 @@ export default function CamperFilter({   draftFilters,
         Search
       </button>
       <button className={css.clearButton} type="button" onClick={onClear}>
-         <span className={css.clearIconBox} aria-hidden="true">
-    <svg className={css.clearIcon} width="12" height="12">
-      <use href="/icons/sprite.svg#icon-x-vector" />
-    </svg>
-  </span>
+        <span className={css.clearIconBox} aria-hidden="true">
+          <svg
+            className={css.clearIcon}
+            width="12"
+            height="12"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <use href="/icons/sprite.svg#icon-x-vector" />
+          </svg>
+        </span>
         Clear filters
       </button>
     </form>

@@ -2,7 +2,6 @@
   width: 623px;
 }
 .reviewstitle {
-  font-family: var(--font-family);
   font-weight: 600;
   font-size: 24px;
   line-height: 1.33333;
@@ -31,7 +30,6 @@
   flex-direction: column;
 }
 .authorABC {
-  font-family: var(--font-family);
   font-weight: 600;
   font-size: 24px;
   line-height: 1.33333;
@@ -44,14 +42,12 @@
   align-content: center;
 }
 .reviewsAuthor {
-  font-family: var(--font-family);
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   color: var(--main);
 }
 .reviewsText {
-  font-family: var(--font-family);
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;

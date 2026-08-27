@@ -67,7 +67,7 @@ export default function CatalogClient() {
     return <p>{error.message}</p>;
   }
   return (
-    <section className={css.page}>
+    <div className={css.page}>
       <CamperFilter
         draftFilters={draftFilters}
         setDraftFilters={setDraftFilters}
@@ -114,7 +114,13 @@ export default function CatalogClient() {
                   onClick={handleClearFilters}
                 >
                   <span className={css.clearIconBox} aria-hidden="true">
-                    <svg className={css.clearIcon} width="12" height="12">
+                    <svg
+                      className={css.clearIcon}
+                      width="12"
+                      height="12"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
                       <use href="/icons/sprite.svg#icon-x-vector" />
                     </svg>
                   </span>
@@ -132,6 +138,6 @@ export default function CatalogClient() {
             </div>
           ))}
       </div>
-    </section>
+    </div>
   );
 }

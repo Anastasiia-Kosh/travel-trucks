@@ -66,6 +66,13 @@
 .input:focus {
   border-color: var(--grey-green);
 }
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--main);
+  -webkit-box-shadow: 0 0 0 1000px var(--inputs) inset;
+  box-shadow: 0 0 0 1000px var(--inputs) inset;
+}
 
 .inputError,
 .inputError:hover,

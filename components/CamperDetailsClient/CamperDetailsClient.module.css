@@ -15,7 +15,6 @@
 .detailWrapper {
   display: flex;
   flex-direction: column;
-  font-family: var(--font-family);
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
@@ -109,13 +108,24 @@
 }
 .tableWrapper {
   display: flex;
-  justify-content: space-between;
-}
-.paramWrapper,
-.qualityWrapper {
-  display: flex;
   flex-direction: column;
   gap: 8px;
+  margin: 0;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.detailRow dt,
+.detailRow dd {
+  margin: 0;
+}
+
+.detailRow dd {
+  text-align: right;
 }
 .qualityWrapper {
   text-align: right;

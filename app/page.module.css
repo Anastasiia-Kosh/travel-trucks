@@ -1,13 +1,14 @@
 .page {
   width: 100%;
+  max-width: 1440px;
   min-height: 690px;
   padding-top: 195px;
-  background-image: url("/image/hero/hero-photo.png");
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("/image/hero/hero-photo.webp");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
-
-  max-width: 1440px;
+  background-position: center 90%;
   margin: 0 auto;
 }
 

@@ -13,9 +13,9 @@
   --olive: #f0f1f1;
   --green-hover: #6d7b75;
 
-  --font-family: "Inter", sans-serif;
-  --second-family: "Manrope", sans-serif;
+  --font-family: var(--font-inter), sans-serif;
 }
+
 *,
 *::before,
 *::after {
@@ -54,9 +54,13 @@ a {
   text-decoration: none;
 }
 button {
-  outline: none;
   border: none;
   cursor: pointer;
+}
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--grey-green);
+  outline-offset: 2px;
 }
 .visually-hidden {
   position: absolute;

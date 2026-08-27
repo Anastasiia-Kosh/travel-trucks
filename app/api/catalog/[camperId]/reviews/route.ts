@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import { isAxiosError } from "axios";
 import { api } from "@/app/api/api";
 
-
 export async function GET(
   _request: Request,
   { params }: { params: Promise<{ camperId: string }> },

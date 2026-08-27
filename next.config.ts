@@ -4,13 +4,13 @@ const nextConfig: NextConfig = {
   /* config options here */
   reactCompiler: true,
   images: {
-	  remotePatterns: [
-		  {
+    remotePatterns: [
+      {
         protocol: "https",
         hostname: "ac.goit.global",
       },
-	    ]
-	},
+    ],
+  },
 };
 
 export default nextConfig;

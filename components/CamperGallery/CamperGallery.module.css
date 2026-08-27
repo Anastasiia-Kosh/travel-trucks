@@ -1,6 +1,4 @@
 .gallery {
-  /* width: 638px;
-  height: 680px; */
   flex: 0 0 638px;
   align-self: stretch;
   min-height: 680px;
@@ -12,7 +10,6 @@
 
 .mainSwiper {
   width: 100%;
-  /* height: 500px; */
   overflow: hidden;
   border-radius: 17px;
   height: 100%;
@@ -28,12 +25,10 @@
 .thumbsSwiper {
   width: 100%;
   height: 150px;
-  /* margin-top: 30px; */
 }
 
 .thumbSlide {
   position: relative;
-  /* height: 150px; */
   height: 100%;
   overflow: hidden;
   border-radius: 16px;
@@ -45,10 +40,8 @@
   position: absolute;
   inset: 0;
   z-index: 2;
-
   border: 3px solid transparent;
   border-radius: inherit;
-
   pointer-events: none;
 }
 

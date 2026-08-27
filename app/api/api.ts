@@ -1,6 +1,5 @@
-import axios from 'axios';
+import axios from "axios";
 
 export const api = axios.create({
-  baseURL: 'https://campers-api.goit.study/',
-  withCredentials: true,
+  baseURL: "https://campers-api.goit.study/",
 });

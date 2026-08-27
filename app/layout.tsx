@@ -1,29 +1,28 @@
 import type { Metadata } from "next";
-import { Inter, Manrope } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 
-
 const inter = Inter({
-  variable: "--font-geist-sans",
+  variable: "--font-inter",
   subsets: ["latin"],
-});
-
-const manrope = Manrope({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
-  title: "TravelTrucks",
+  title: {
+    default: "TravelTrucks",
+    template: "%s | TravelTrucks",
+  },
   description: "Find your TravelTrucks",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${inter.variable} ${manrope.variable}`}>
-      <body>
+    <html lang="en" className={inter.variable}>
+      <body className={inter.className}>
         <TanStackProvider>
           <Header />
           <main>{children}</main>

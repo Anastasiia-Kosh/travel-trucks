@@ -17,11 +17,8 @@ interface CamperGalleryProps {
   gallery: CamperImage[];
 }
 
-export default function CamperGallery({
-  gallery,
-}: CamperGalleryProps) {
-  const [thumbsSwiper, setThumbsSwiper] =
-    useState<SwiperType | null>(null);
+export default function CamperGallery({ gallery }: CamperGalleryProps) {
+  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
 
   const sortedGallery = [...gallery].sort(
     (first, second) => first.order - second.order,
@@ -32,19 +29,13 @@ export default function CamperGallery({
       <Swiper
         modules={[Thumbs]}
         thumbs={{
-          swiper:
-            thumbsSwiper && !thumbsSwiper.destroyed
-              ? thumbsSwiper
-              : null,
+          swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
         }}
         grabCursor
         className={css.mainSwiper}
       >
         {sortedGallery.map((image, index) => (
-          <SwiperSlide
-            key={image.id}
-            className={css.mainSlide}
-          >
+          <SwiperSlide key={image.id} className={css.mainSlide}>
             <Image
               src={image.original}
               alt={`Camper photo ${index + 1}`}
@@ -68,16 +59,14 @@ export default function CamperGallery({
         className={css.thumbsSwiper}
       >
         {sortedGallery.map((image, index) => (
-          <SwiperSlide
-            key={image.id}
-            className={css.thumbSlide}
-          >
+          <SwiperSlide key={image.id} className={css.thumbSlide}>
             <Image
               src={image.thumb}
               alt={`Camper thumbnail ${index + 1}`}
               fill
               sizes="136px"
-              loading="lazy"
+              loading={index === 0 ? "eager" : "lazy"}
+              fetchPriority={index === 0 ? "high" : "auto"}
               className={css.image}
             />
           </SwiperSlide>

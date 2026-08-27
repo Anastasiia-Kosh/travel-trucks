@@ -1,7 +1,7 @@
 "use client";
 
 import { useMutation } from "@tanstack/react-query";
-import { ErrorMessage, Field, Form, Formik } from "formik";
+import { Field, Form, Formik } from "formik";
 import toast from "react-hot-toast";
 import { createBookingRequest } from "@/lib/api/clientApi";
 import { bookingSchema } from "@/lib/validation/bookingSchema";
@@ -49,31 +49,36 @@ export default function BookingForm({ camperId }: BookingFormProps) {
           }
         }}
       >
-        {({ errors, touched }) => {
-          const nameHasError = Boolean(touched.name && errors.name);
+        {({ errors, values, submitCount }) => {
+          const nameHasError = Boolean(
+            errors.name && (values.name.trim().length > 0 || submitCount > 0),
+          );
 
-          const emailHasError = Boolean(touched.email && errors.email);
+          const emailHasError = Boolean(
+            errors.email && (values.email.trim().length > 0 || submitCount > 0),
+          );
 
           return (
             <Form className={css.form} noValidate>
               <div className={css.fieldGroup}>
                 <div className={css.inputWrapper}>
                   {nameHasError && (
-                    <label className={css.errorLabel} htmlFor="name">
+                    <span className={css.errorLabel} aria-hidden="true">
                       Name*
-                    </label>
+                    </span>
                   )}
-
                   <Field
                     id="name"
                     name="name"
                     type="text"
+                    autoComplete="name"
                     placeholder="Name*"
+                    aria-label="Name"
                     className={`${css.input} ${
                       nameHasError ? css.inputError : ""
                     }`}
                     aria-invalid={nameHasError}
-                    aria-describedby="name-error"
+                    aria-describedby={nameHasError ? "name-error" : undefined}
                   />
 
                   {nameHasError && (
@@ -83,32 +88,32 @@ export default function BookingForm({ camperId }: BookingFormProps) {
                   )}
                 </div>
 
-                <ErrorMessage
-                  id="name-error"
-                  name="name"
-                  component="p"
-                  className={css.errorMessage}
-                />
+                {nameHasError && (
+                  <p id="name-error" className={css.errorMessage}>
+                    {errors.name}
+                  </p>
+                )}
               </div>
 
               <div className={css.fieldGroup}>
                 <div className={css.inputWrapper}>
                   {emailHasError && (
-                    <label className={css.errorLabel} htmlFor="email">
+                    <span className={css.errorLabel} aria-hidden="true">
                       Email*
-                    </label>
+                    </span>
                   )}
-
                   <Field
                     id="email"
                     name="email"
                     type="email"
+                    autoComplete="email"
                     placeholder="Email*"
+                    aria-label="Email"
                     className={`${css.input} ${
                       emailHasError ? css.inputError : ""
                     }`}
                     aria-invalid={emailHasError}
-                    aria-describedby="email-error"
+                    aria-describedby={emailHasError ? "email-error" : undefined}
                   />
 
                   {emailHasError && (
@@ -118,12 +123,11 @@ export default function BookingForm({ camperId }: BookingFormProps) {
                   )}
                 </div>
 
-                <ErrorMessage
-                  id="email-error"
-                  name="email"
-                  component="p"
-                  className={css.errorMessage}
-                />
+                {emailHasError && (
+                  <p id="email-error" className={css.errorMessage}>
+                    {errors.email}
+                  </p>
+                )}
               </div>
 
               <button type="submit" className={css.button} disabled={isPending}>
