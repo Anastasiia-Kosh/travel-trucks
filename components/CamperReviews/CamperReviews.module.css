@@ -1,0 +1,59 @@
+.reviewsWrapper {
+  width: 623px;
+}
+.reviewstitle {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  color: var(--main);
+  margin-bottom: 24px;
+}
+.reviewCards {
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+}
+.reviewCard {
+  border-radius: 16px;
+  padding: 16px;
+  background-color: var(--inputs);
+}
+.authorInfo {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.ratingInfo {
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+}
+.authorABC {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  color: var(--grey-green);
+  border-radius: 60px;
+  width: 60px;
+  height: 60px;
+  background-color: var(--white);
+  text-align: center;
+  align-content: center;
+}
+.reviewsAuthor {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--main);
+}
+.reviewsText {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+}

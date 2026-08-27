@@ -6,6 +6,8 @@ import LoaderModal from "../LoaderModal/LoaderModal";
 import CamperGallery from "../CamperGallery/CamperGallery";
 import css from "./CamperDetailsClient.module.css";
 import { formatLabel } from "@/lib/utils/fomatLabel";
+import CamperReviews from "../CamperReviews/CamperReviews";
+import BookingForm from "../BookingForm/BookingForm";
 
 interface CamperDetailsClientProps {
   camperId: string;
@@ -33,6 +35,7 @@ export default function CamperDetailsClient({
   }
 
   return (
+    <>
     <div className={css.sectionWrapper}>
       <CamperGallery gallery={camper.gallery} />
       <div className={css.sectionTextWrapper}>
@@ -85,6 +88,11 @@ export default function CamperDetailsClient({
           </ul>
         </div></div>
       </div>
-    </div>
+      </div>
+      <div className={css.review_bookingWrapper}>
+      <CamperReviews camperId={camperId} />
+        <BookingForm camperId={camperId} />
+        </div>
+      </>
   );
 }

@@ -56,3 +56,20 @@ export type CamperDetails = Omit<Camper, "coverImage"> & {
   updatedAt: string;
 };
 
+export interface CamperReviewPesponse {
+  id: string;
+  camperId: string;
+  reviewer_name: string;
+  reviewer_rating: number;
+  comment: string;
+  createdAt: string;
+}
+
+export interface BookingRequestData {
+  name: string;
+  email: string;
+}
+
+export interface BookingResponse {
+  message: string;
+}

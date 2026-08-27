@@ -11,11 +11,15 @@
   "dependencies": {
     "@tanstack/react-query": "^5.102.3",
     "axios": "^1.19.0",
+    "formik": "^2.4.9",
     "next": "16.3.2",
     "react": "19.2.8",
     "react-dom": "19.2.8",
+    "react-hot-toast": "^2.6.0",
     "react-loader-spinner": "^8.0.2",
-    "swiper": "^14.1.0"
+    "react-simple-star-rating": "^5.1.7",
+    "swiper": "^14.1.0",
+    "yup": "^1.7.1"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -51,6 +51,7 @@ export default function CamperGallery({
               fill
               sizes="638px"
               loading={index === 0 ? "eager" : "lazy"}
+              fetchPriority={index === 0 ? "high" : "auto"}
               className={css.image}
             />
           </SwiperSlide>
@@ -76,6 +77,7 @@ export default function CamperGallery({
               alt={`Camper thumbnail ${index + 1}`}
               fill
               sizes="136px"
+              loading="lazy"
               className={css.image}
             />
           </SwiperSlide>
