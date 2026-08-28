@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: "TravelTrucks",
   description:
     "Rent a comfortable camper and start your next journey with TravelTrucks.",
 };

@@ -41,16 +41,8 @@
   line-height: 1.5;
   text-align: center;
   color: var(--main);
-  transition:
-    color 200ms ease,
-    transform 300ms ease-out;
 }
 
-.navLink:hover,
-.navLink:focus {
-  color: var(--grey-green);
-  transform: scale(1.05) translateY(-3px);
-}
 .activeLink {
   color: var(--grey-green);
 }
@@ -78,5 +70,18 @@
 
   .navLink {
     font-size: 16px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .navLink {
+    transition:
+      color 200ms ease,
+      transform 300ms ease-out;
+  }
+
+  .navLink:hover,
+  .navLink:focus {
+    color: var(--grey-green);
+    transform: scale(1.05) translateY(-3px);
   }
 }
