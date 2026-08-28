@@ -1,5 +1,7 @@
 # TravelTrucks
 
+![TravelTrucks — головна сторінка](./assets/travel-trucks-preview.webp)
+
 TravelTrucks is a camper rental web application that allows users to browse available campers, filter the catalog, view detailed vehicle information and submit booking requests.
 
 ## Features
