@@ -240,11 +240,11 @@
     max-width: 195px;
   }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1440px) {
   .page {
     display: flex;
     align-items: flex-start;
-    gap: 65px;
+    gap: 64px;
   }
   .wrapper {
     display: flex;

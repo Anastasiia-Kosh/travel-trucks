@@ -42,6 +42,7 @@ export default function CamperDetailsClient({
           <div className={css.infoWrapper}>
             <h1 className={css.title}>{camper.name}</h1>
             <div className={css.ratingWrapper}>
+              <div className={css.ratingGroup}>
               <svg
                 width={16}
                 height={16}
@@ -54,7 +55,9 @@ export default function CamperDetailsClient({
               <p className={css.rating}>{camper.rating}</p>
               <p className={css.totalReviews}>
                 ({camper.totalReviews} Reviews)
-              </p>
+                </p>
+              </div>
+              <div className={css.locationGroup}>
               <svg
                 width={16}
                 height={16}
@@ -64,7 +67,8 @@ export default function CamperDetailsClient({
               >
                 <use href="/icons/sprite.svg#icon-location"></use>
               </svg>
-              <p className={css.location}>{camper.location}</p>
+                <p className={css.location}>{camper.location}</p>
+                </div>
             </div>
             <p className={css.price}>€{camper.price}</p>
             <p className={css.description}>{camper.description}</p>

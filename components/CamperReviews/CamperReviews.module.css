@@ -1,5 +1,6 @@
 .reviewsWrapper {
-  width: 623px;
+  width: 100%;
+  min-width: 0;
 }
 .reviewstitle {
   font-weight: 600;
@@ -52,4 +53,10 @@
   font-size: 16px;
   line-height: 1.5;
   color: var(--text);
+}
+@media screen and (min-width: 1440px) {
+  .reviewsWrapper {
+    flex: 0 0 623px;
+    width: 623px;
+  }
 }

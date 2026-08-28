@@ -151,7 +151,7 @@ export default function CatalogClient() {
                   alt="No campers found"
                   fill
                   className={css.photo}
-                  sizes="(min-width: 1200px) 488px, 90vw"
+                  sizes="(min-width: 768px) 488px, 90vw"
                 />
               </div>
               <h2 className={css.emptyTitle}>No campers found</h2>

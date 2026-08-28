@@ -1,9 +1,9 @@
 .sectionBooking {
   width: 100%;
-  max-width: 641px;
+  max-width: none;
+  padding: 16px;
   border: 1px solid var(--gray-light);
   border-radius: 16px;
-  padding: 44px;
 }
 .title {
   font-weight: 600;
@@ -154,4 +154,25 @@
 .button:disabled {
   cursor: not-allowed;
   opacity: 0.6;
+}
+@media screen and (min-width: 768px) {
+  .sectionBooking {
+    padding: 20px;
+  }
+  .input {
+    min-height: 60px;
+    padding: 18px 20px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .sectionBooking {
+    flex: 0 0 641px;
+    max-width: 641px;
+    padding: 44px;
+  }
+  .input {
+    min-height: 56px;
+    padding: 18px;
+  }
 }

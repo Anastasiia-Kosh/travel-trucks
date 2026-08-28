@@ -194,7 +194,6 @@
   }
 
   .techWrapper {
-    /* flex-wrap: nowrap; */
     margin-bottom: 24px;
   }
 
@@ -209,7 +208,7 @@
     padding: 16px 44px;
   }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1440px) {
   .card {
     width: 888px;
   }
