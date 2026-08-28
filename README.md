@@ -4,6 +4,7 @@ TravelTrucks is a camper rental web application that allows users to browse avai
 
 ## Features
 
+- Responsive mobile-first interface
 - Camper catalog loaded from the backend
 - Filtering by location, camper form, engine and transmission
 - Pagination with Load More
@@ -57,6 +58,13 @@ Open http://localhost:3000 in your browser.
 ```bash
 npm run build
 npm start
+```
+
+## Code quality
+
+```bash
+npm run lint
+npm run format:check
 ```
 
 ## Resources
