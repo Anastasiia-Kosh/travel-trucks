@@ -24,26 +24,26 @@ export default function CatalogClient() {
     useState<CamperFilterValues>(initialFilters);
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
   useEffect(() => {
-  if (!isFiltersOpen) {
-    return;
-  }
-
-  const previousOverflow = document.body.style.overflow;
-  document.body.style.overflow = "hidden";
-
-  const handleEscape = (event: KeyboardEvent) => {
-    if (event.key === "Escape") {
-      setIsFiltersOpen(false);
+    if (!isFiltersOpen) {
+      return;
     }
-  };
 
-  window.addEventListener("keydown", handleEscape);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
 
-  return () => {
-    document.body.style.overflow = previousOverflow;
-    window.removeEventListener("keydown", handleEscape);
-  };
-}, [isFiltersOpen]);
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsFiltersOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [isFiltersOpen]);
   const {
     data,
     error,
@@ -114,7 +114,12 @@ export default function CatalogClient() {
             onClick={() => setIsFiltersOpen(false)}
             aria-label="Close filters"
           >
-            <svg className={css.closeFiltersIcon} width="12" height="12" aria-hidden="true">
+            <svg
+              className={css.closeFiltersIcon}
+              width="12"
+              height="12"
+              aria-hidden="true"
+            >
               <use href="/icons/sprite.svg#icon-x-vector" />
             </svg>
           </button>

@@ -52,22 +52,22 @@ export default function CamperGallery({ gallery }: CamperGalleryProps) {
       <Swiper
         modules={[FreeMode, Thumbs]}
         onSwiper={setThumbsSwiper}
-  slidesPerView={2.2}
-  spaceBetween={12}
-  breakpoints={{
-    480: {
-      slidesPerView: 3,
-      spaceBetween: 16,
-    },
-    768: {
-      slidesPerView: 4,
-      spaceBetween: 24,
-    },
-    1440: {
-      slidesPerView: 4,
-      spaceBetween: 32,
-    },
-  }}
+        slidesPerView={2.2}
+        spaceBetween={12}
+        breakpoints={{
+          480: {
+            slidesPerView: 3,
+            spaceBetween: 16,
+          },
+          768: {
+            slidesPerView: 4,
+            spaceBetween: 24,
+          },
+          1440: {
+            slidesPerView: 4,
+            spaceBetween: 32,
+          },
+        }}
         freeMode
         watchSlidesProgress
         className={css.thumbsSwiper}

@@ -43,32 +43,32 @@ export default function CamperDetailsClient({
             <h1 className={css.title}>{camper.name}</h1>
             <div className={css.ratingWrapper}>
               <div className={css.ratingGroup}>
-              <svg
-                width={16}
-                height={16}
-                className={css.icon}
-                aria-hidden="true"
-                focusable="false"
-              >
-                <use href="/icons/sprite.svg#icon-rating"></use>
-              </svg>
-              <p className={css.rating}>{camper.rating}</p>
-              <p className={css.totalReviews}>
-                ({camper.totalReviews} Reviews)
+                <svg
+                  width={16}
+                  height={16}
+                  className={css.icon}
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <use href="/icons/sprite.svg#icon-rating"></use>
+                </svg>
+                <p className={css.rating}>{camper.rating}</p>
+                <p className={css.totalReviews}>
+                  ({camper.totalReviews} Reviews)
                 </p>
               </div>
               <div className={css.locationGroup}>
-              <svg
-                width={16}
-                height={16}
-                className={css.iconLocal}
-                aria-hidden="true"
-                focusable="false"
-              >
-                <use href="/icons/sprite.svg#icon-location"></use>
-              </svg>
+                <svg
+                  width={16}
+                  height={16}
+                  className={css.iconLocal}
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <use href="/icons/sprite.svg#icon-location"></use>
+                </svg>
                 <p className={css.location}>{camper.location}</p>
-                </div>
+              </div>
             </div>
             <p className={css.price}>€{camper.price}</p>
             <p className={css.description}>{camper.description}</p>
