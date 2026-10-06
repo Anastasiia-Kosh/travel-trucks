@@ -83,4 +83,4 @@ Anastasiia Kosh
 
 # Макет
 
-[TFigma](https://www.figma.com/design/6vTbzaB3EPgOreQz2jOJJe/Campers?node-id=48730-474&p=f&t=2JB4e6JnLNMoCsa0-0)
+[Figma](https://www.figma.com/design/6vTbzaB3EPgOreQz2jOJJe/Campers?node-id=48730-474&p=f&t=2JB4e6JnLNMoCsa0-0)
